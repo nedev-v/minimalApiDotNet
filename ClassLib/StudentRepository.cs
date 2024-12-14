@@ -13,7 +13,7 @@ namespace ClassLib
                 new Student { Id = 1, Name = "Mieke", Succeeded = true },
                 new Student { Id = 2, Name = "Mike" },
                 new Student { Id = 3, Name = "Kevin", Succeeded = false},
-                new Student { Id = 4, Name = "Sosi", Succeeded = false},
+                new Student { Id = 4, Name = "Sasha", Succeeded = false},
             };
         }
 

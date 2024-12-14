@@ -15,16 +15,16 @@ jobs:
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '8.0'
 
       - name: Restore Dependencies
-        run: dotnet restore ./examples-aspnet-minimalapi.sln
+        run: dotnet restore ./MinimalAPI/MinimalAPI.csproj
 
       - name: Build the Application
-        run: dotnet build ./examples-aspnet-minimalapi.sln --configuration Release --no-restore
+        run: dotnet build ./MinimalAPI/MinimalAPI.csproj --configuration Release --no-restore
 
       - name: Publish the Application
-        run: dotnet publish ./examples-aspnet-minimalapi.sln --configuration Release --no-build --output ./publish
+        run: dotnet publish ./MinimalAPI/MinimalAPI.csproj --configuration Release --no-build --output ./publish
 
       - name: Create Zip of Published Files
         run: |

@@ -21,10 +21,10 @@ jobs:
         run: dotnet restore ./MinimalAPI/MinimalAPI.csproj
 
       - name: Build the Application
-        run: dotnet build ./MinimalAPI/MinimalAPI.csproj --configuration Release
+        run: dotnet build ./MinimalAPI/MinimalAPI.csproj --configuration Release --no-restore
 
       - name: Publish the Application
-        run: dotnet publish ./MinimalAPI/MinimalAPI.csproj --configuration Release --output ./publish
+        run: dotnet publish ./MinimalAPI/MinimalAPI.csproj --configuration Release --no-build --output ./publish
 
       - name: Create Zip of Published Files
         run: |
@@ -61,8 +61,9 @@ jobs:
               "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
             }
 
-      - name: Deploy to Azure App Service
+      - name: Deploy to Azure
         uses: azure/webapps-deploy@v3
         with:
           app-name: "nediev-webapp-production-westeurope-01"
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
           package: './release-artifact/release.zip'

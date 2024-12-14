@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: "nediev-webapp-production-westeurope-01"
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: './release-artifact/release.zip/publish'
+          package: './release-artifact/release.zip'
